@@ -1,6 +1,8 @@
 FROM node:24-alpine
+RUN apk upgrade --no-cache
 WORKDIR /app
 COPY package*.json .
-RUN npm i
+RUN npm install
 COPY . /app/
+RUN npm run buiild
 CMD ["npm", "run", "dev"]

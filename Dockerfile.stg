@@ -1,0 +1,8 @@
+FROM node:24-alpine
+RUN apk upgrade --no-cache
+WORKDIR /app
+COPY package*.json .
+RUN npm install
+COPY . /app/
+EXPOSE 5715
+CMD ["npm", "run", "preview"]
